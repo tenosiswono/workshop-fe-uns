@@ -1,20 +1,36 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 
 const SearchForm = ({ onSubmitKeywords }) => {
-  const keywordRef = useRef()
+  const [email, setEmail] = useState('')
 
   function handleSubmit(event) {
     event.preventDefault()
-    onSubmitKeywords(keywordRef.current.value)
+    onSubmitKeywords(email)
   }
+
+  function onChange(event) {
+    setEmail(event.target.value)
+  }
+
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex' }}>
-      <div style={{ marginRight: '12px' }}>
-        <label htmlFor="keywords">Search:</label>
-        <input id="keywords" type="text" ref={keywordRef} />
+    <>
+      <div>
+        <button onClick={() => setEmail('admin@uns.ac.id')}>Set email to "admin@uns.ac.id"</button>
+        <button onClick={() => setEmail('user@uns.ac.id')}>Set email to "user@uns.ac.id"</button>
       </div>
-      <button type="submit">Search</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <div style={{ marginRight: '12px' }}>
+          <label htmlFor="email">Email:</label>
+          <input
+            id="email" 
+            type="text" 
+            value={email}
+            onChange={onChange}
+          />
+        </div>
+        <button type="submit">Search</button>
+      </form>
+    </>
   )
 }
 
