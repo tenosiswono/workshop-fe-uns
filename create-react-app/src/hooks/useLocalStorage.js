@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useDebugValue, useEffect, useState } from 'react';
 
 function useLocalStorage(
   key,
@@ -20,6 +20,7 @@ function useLocalStorage(
     window.localStorage.setItem(key, serialize(state))
   }, [state, key, serialize])
 
+  useDebugValue(`useLocalStorage ${state}`)
   return [state, setState]
 }
 

@@ -1,12 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-// import App from './Box';
-// import App from './Form';
-// import App from './Array';
-// import App from './UseState';
-// import App from './HTTPCall'
 import App from './AppRouter'
 import reportWebVitals from './reportWebVitals';
 
