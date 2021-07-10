@@ -1,29 +1,23 @@
-import { useEffect, useState } from 'react';
+import useLocalStorage from "./hooks/useLocalStorage.js"
 
 function Greeting({ initialName = ''}) {
-  const [name, setName] = useState(
-    window.localStorage.getItem('name') || initialName
-  )
-  const [greeting, setGreeting] = useState('Hallo')
-
+  const [name, setName] = useLocalStorage('name', '')
+  const [greeting, setGreeting] = useLocalStorage('greetings', 'Hallo')
+  const [objek] = useLocalStorage('objek', { contoh: 'objek' })
   function onChange(event) {
     setName(event.target.value)
-    console.log('setState')
   }
 
   function onChangeGreeting(event) {
     setGreeting(event.target.value)
-    console.log('setState')
   }
-
-  useEffect(() => {
-    window.localStorage.setItem('name', name)
-    console.log('useEffect')
-  }, [name])
 
   return (
     <div style={{ margin: '24px'}}>
       <h1>useState dan useEffect</h1>
+      <code>
+        {JSON.stringify(objek)}
+      </code>
       <form>
         <div style={{ marginBottom: '12px' }}>
           <label htmlFor="name">Name: </label>
