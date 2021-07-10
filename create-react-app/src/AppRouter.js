@@ -10,7 +10,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Dashboard from './pages/Dashboard'
 
-export default function BasicExample() {
+export default function AppRouter() {
   return (
     <Router>
       <div>

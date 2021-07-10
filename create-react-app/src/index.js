@@ -7,7 +7,7 @@ import './index.css';
 // import App from './Array';
 // import App from './UseState';
 // import App from './HTTPCall'
-import App from './UseContext'
+import App from './AppRouter'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
